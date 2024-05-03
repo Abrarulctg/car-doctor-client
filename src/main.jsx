@@ -12,6 +12,7 @@ import About from './components/Pages/Home/About.jsx';
 import Login from './components/Pages/Login/Login.jsx';
 import AuthProvider from './components/Provider/AuthProvider.jsx';
 import SignUp from './components/Pages/SignUp/SignUp.jsx';
+import Checkout from './components/Pages/Checkout/Checkout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/checkout/:id",
+        element: <Checkout></Checkout>,
+        loader: ({ params }) => fetch(`http://localhost:4500/services/${params.id}`)
       },
     ]
   },
